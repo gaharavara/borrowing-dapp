@@ -3,6 +3,9 @@ pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
 
+import "./EthPrice.sol";
+import "./Token.sol";
+
 /*
 Main Idea
 - the lender has it's own token ( LEND token )
@@ -17,13 +20,24 @@ TODO:
 */
 contract Lender {
 
+  LenderToken public LEND;
+  GetEthPrice private EthPrice;
+
+  // the amount of eth lender contract has
+  uint collateral;
+  // the amount of LEND tokens minted / in supply
+  uint mintedLend;
+
   constructor(string memory) {
   }
 
-  function deposit() public {
+  function borrow(uint collateralAmount) public payable {
+    // Here we will take the collateral and submit 50%
+    // of equivalent amount of token to the borrower's account
   }
 
-  function withdraw() public {
+  function getCollateral(uint tokenAmount) public payable {
+    // Here we will return the collateral to the borrowers address
   }
 
 }
